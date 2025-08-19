@@ -34,8 +34,31 @@ class BlogScraper:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
         
-        # News website configurations
+        # AI Companies and News Sources
         self.companies = {
+            # Major AI Companies
+            'Anthropic': {
+                'url': 'https://www.anthropic.com/news',
+                'parser': self._parse_generic_blog
+            },
+            'OpenAI': {
+                'url': 'https://openai.com/news/',
+                'parser': self._parse_generic_blog
+            },
+            'DeepMind': {
+                'url': 'https://deepmind.google/discover/blog/',
+                'parser': self._parse_generic_blog
+            },
+            'Cohere': {
+                'url': 'https://cohere.com/blog',
+                'parser': self._parse_generic_blog
+            },
+            'Hugging Face': {
+                'url': 'https://huggingface.co/blog',
+                'parser': self._parse_generic_blog
+            },
+            
+            # Tech News Sources
             'TechCrunch AI': {
                 'url': 'https://techcrunch.com/category/artificial-intelligence/',
                 'parser': self._parse_generic_blog
@@ -48,16 +71,12 @@ class BlogScraper:
                 'url': 'https://www.theverge.com/ai-artificial-intelligence',
                 'parser': self._parse_generic_blog
             },
-            'Ars Technica': {
+            'Ars Technica AI': {
                 'url': 'https://arstechnica.com/tag/artificial-intelligence/',
                 'parser': self._parse_generic_blog
             },
             'MIT Technology Review': {
                 'url': 'https://www.technologyreview.com/topic/artificial-intelligence/',
-                'parser': self._parse_generic_blog
-            },
-            'AI News': {
-                'url': 'https://www.artificialintelligence-news.com/',
                 'parser': self._parse_generic_blog
             }
         }
